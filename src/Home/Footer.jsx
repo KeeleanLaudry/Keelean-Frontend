@@ -171,7 +171,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Floating CTA */}
-      <div className="fixed bottom-6 right-6 z-50">
+      {/* <div className="fixed bottom-6 right-6 z-50">
         <div className="bg-gray-800 rounded-lg shadow-xl p-4 flex items-center space-x-3 border border-gray-700">
           <div className="bg-gray-900 p-2 rounded">
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,7 +186,7 @@ const Footer = () => {
             Chat Now
           </button>
         </div>
-      </div>
+      </div> */}
     <div className="flex flex-col items-center justify-center text-center py-6 border-t border-gray-700">
   <p className="text-gray-500 text-sm">
     © {currentYear} Keelean Laundry. All rights reserved.

@@ -1,0 +1,710 @@
+  const products = [
+    {
+      id: 1,
+      name: "Premium Denim Care",
+      category: "men",
+      serviceFor: "Men",
+      price: 149,
+      originalPrice: 199,
+      rating: 4.5,
+      reviews: 128,
+      image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=300&fit=crop",
+      description: "Premium denim wash & care",
+      tagline: "Restores original color & fit",
+      deliveryTime: "24 hrs",
+      popular: true,
+      variants: [
+        { type: "Wash & Iron", price: 149, savings: "Save ₹50", popular: true },
+        { type: "Dry Clean", price: 249, savings: "Premium care" },
+        { type: "Express", price: 199, savings: "4 hrs delivery" }
+      ],
+      fabricCare: "Machine wash cold, Tumble dry low",
+      subscription: { available: true, discount: "20% off", savings: "Save ₹360/year" },
+      badges: ["Eco-friendly"]
+    },
+    {
+      id: 2,
+      name: "Casual Top Care",
+      category: "women",
+      serviceFor: "Women",
+      price: 99,
+      originalPrice: 149,
+      rating: 4.3,
+      reviews: 89,
+      image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=300&fit=crop",
+      description: "Gentle fabric care",
+      tagline: "Perfect for delicate fabrics",
+      deliveryTime: "12 hrs",
+      popular: false,
+      variants: [
+        { type: "Wash & Iron", price: 99, savings: "Quick service" },
+        { type: "Steam Iron", price: 79, savings: "Best value", popular: true },
+        { type: "Stain Removal", price: 149, savings: "Deep clean" }
+      ],
+      fabricCare: "Hand wash recommended, Mild detergent",
+      subscription: { available: true, discount: "15% off", savings: "Save ₹180/year" },
+      badges: ["Value pack"]
+    },
+    {
+      id: 3,
+      name: "Elegant Skirt Service",
+      category: "women",
+      serviceFor: "Women",
+      price: 129,
+      originalPrice: 179,
+      rating: 4.7,
+      reviews: 156,
+      image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&h=300&fit=crop",
+      description: "Special care for delicate fabrics",
+      tagline: "Pleat preservation specialist",
+      deliveryTime: "24 hrs",
+      popular: true,
+      variants: [
+        { type: "Dry Clean", price: 179, savings: "Professional care" },
+        { type: "Wash & Fold", price: 129, savings: "Save ₹50", popular: true },
+        { type: "Premium Press", price: 149, savings: "Crisp finish" }
+      ],
+      fabricCare: "Dry clean only, Steam press",
+      subscription: { available: true, discount: "25% off", savings: "Save ₹400/year" },
+      badges: ["Most popular"]
+    },
+    {
+      id: 4,
+      name: "Formal Shirt Care",
+      category: "men",
+      serviceFor: "men",
+      price: 89,
+      originalPrice: 129,
+      rating: 4.4,
+      reviews: 67,
+      image: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&h=300&fit=crop",
+      description: "Premium ironing & fold",
+      tagline: "Crisp collar & cuff specialist",
+      deliveryTime: "12 hrs",
+      popular: false,
+      variants: [
+        { type: "Wash & Iron", price: 89, savings: "Save ₹40", popular: true },
+        { type: "Dry Clean", price: 149, savings: "Deep clean" },
+        { type: "Express", price: 119, savings: "6 hrs delivery" }
+      ],
+      fabricCare: "Machine wash warm, Professional ironing",
+      subscription: { available: false, discount: null, savings: null },
+      badges: ["Office favorite"]
+    },
+    {
+      id: 5,
+      name: "Winter Sweater Care",
+      category: "sweaters",
+      serviceFor: "Unisex",
+      price: 199,
+      originalPrice: 249,
+      rating: 4.6,
+      reviews: 92,
+      image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400&h=300&fit=crop",
+      description: "Special wool care",
+      tagline: "Anti-shrinkage treatment",
+      deliveryTime: "36 hrs",
+      popular: true,
+      variants: [
+        { type: "Dry Clean", price: 249, savings: "Premium care" },
+        { type: "Hand Wash", price: 199, savings: "Save ₹50", popular: true },
+        { type: "Stain Treatment", price: 299, savings: "Deep clean" }
+      ],
+      fabricCare: "Dry clean preferred, Lay flat to dry",
+      subscription: { available: true, discount: "20% off", savings: "Save ₹480/year" },
+      badges: ["Winter special"]
+    },
+    {
+      id: 6,
+      name: "Designer Dress Care",
+      category: "dresses",
+      serviceFor: "Women",
+      price: 249,
+      originalPrice: 299,
+      rating: 4.8,
+      reviews: 203,
+      image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=300&fit=crop",
+      description: "Premium dry cleaning",
+      tagline: "Bridal & evening wear specialist",
+      deliveryTime: "48 hrs",
+      popular: true,
+      variants: [
+        { type: "Premium Dry Clean", price: 299, savings: "Luxury care" },
+        { type: "Hand Finish", price: 349, savings: "Attention to detail", popular: true },
+        { type: "Express", price: 399, savings: "24 hrs delivery" }
+      ],
+      fabricCare: "Professional care only, Special handling",
+      subscription: { available: true, discount: "30% off", savings: "Save ₹900/year" },
+      badges: ["Wedding special"]
+    },
+    {
+  id: 7,
+  name: "Luxury Blazer Care",
+  category: "men",
+  serviceFor: "men",
+  price: 299,
+  originalPrice: 399,
+  rating: 4.6,
+  reviews: 142,
+  image: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=400&h=300&fit=crop",
+  description: "Premium blazer dry cleaning",
+  tagline: "Perfect shape & wrinkle-free finish",
+  deliveryTime: "48 hrs",
+  popular: true,
+  variants: [
+    { type: "Dry Clean", price: 299, savings: "Save ₹100", popular: true },
+    { type: "Premium Steam Finish", price: 349, savings: "Luxury care" },
+    { type: "Express Service", price: 399, savings: "24 hrs delivery" }
+  ],
+  fabricCare: "Dry clean only, Steam finish recommended",
+  subscription: { available: true, discount: "20% off", savings: "Save ₹600/year" },
+  badges: ["Business wear"]
+},
+ {
+  id: 8,
+  name: "Curtain Care",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 299,
+  originalPrice: 399,
+  rating: 4.7,
+  reviews: 96,
+  image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&h=300&fit=crop",
+  description: "Heavy fabric curtain cleaning",
+  tagline: "Dust & odor removal expert",
+  deliveryTime: "48 hrs",
+  popular: false,
+  variants: [
+    { type: "Dry Clean", price: 399, savings: "Deep clean", popular: true },
+    { type: "Wash & Steam", price: 299, savings: "Save ₹100" },
+    { type: "Express", price: 449, savings: "24 hrs delivery" }
+  ],
+  fabricCare: "Dust extraction, Steam sanitization",
+  subscription: { available: false, discount: null, savings: null },
+  badges: ["Home essential"]
+},
+{
+  id: 9,
+  name: "Saree Care",
+  category: "ethnic",
+  serviceFor: "Women",
+  price: 249,
+  originalPrice: 349,
+  rating: 4.8,
+  reviews: 178,
+  image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=300&fit=crop",
+  description: "Delicate saree cleaning & polish",
+  tagline: "Silk-safe & color protection",
+  deliveryTime: "48 hrs",
+  popular: true,
+  variants: [
+    { type: "Dry Clean", price: 249, savings: "Save ₹100", popular: true },
+    { type: "Roll Polish", price: 299, savings: "Shine finish" },
+    { type: "Express", price: 349, savings: "24 hrs delivery" }
+  ],
+  fabricCare: "Silk-safe solvent clean",
+  subscription: { available: true, discount: "20% off", savings: "Festive plan" },
+  badges: ["Ethnic care"]
+},
+{
+  id: 10,
+  name: "Curtain Deep Cleaning",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 299,
+  originalPrice: 399,
+  rating: 4.6,
+  reviews: 112,
+  image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&h=300&fit=crop",
+  description: "Heavy curtain dust & stain removal",
+  tagline: "Odor-free & wrinkle-free curtains",
+  deliveryTime: "48 hrs",
+  popular: false,
+  variants: [
+    { type: "Wash & Steam", price: 299, savings: "Save ₹100", popular: true },
+    { type: "Dry Clean", price: 399, savings: "Deep fabric care" },
+    { type: "Express", price: 449, savings: "24 hrs delivery" }
+  ],
+  fabricCare: "Dust extraction & steam sanitization",
+  subscription: { available: false, discount: null, savings: null },
+  badges: ["Home care"]
+},
+{
+  id: 11,
+  name: "Blanket & Quilt Wash",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 349,
+  originalPrice: 449,
+  rating: 4.7,
+  reviews: 134,
+image: "https://images.unsplash.com/photo-1603251579431-8041402bdeda?w=400&h=300&fit=crop",
+  description: "Heavy blanket deep washing",
+  tagline: "Softness restore & germ-free",
+  deliveryTime: "48 hrs",
+  popular: true,
+  variants: [
+    { type: "Machine Wash", price: 349, savings: "Save ₹100", popular: true },
+    { type: "Hot Wash", price: 399, savings: "Kills bacteria" },
+    { type: "Premium Softener", price: 449, savings: "Extra softness" }
+  ],
+  fabricCare: "Warm wash & tumble dry",
+  subscription: { available: true, discount: "15% off", savings: "Seasonal wash plan" },
+  badges: ["Winter care"]
+},
+{
+  id: 12,
+  name: "Sneaker & Shoe Cleaning",
+  category: "footwear",
+  serviceFor: "Unisex",
+  price: 299,
+  originalPrice: 399,
+  rating: 4.5,
+  reviews: 176,
+  image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop",
+  description: "Complete shoe restoration",
+  tagline: "Whitening & deodorizing",
+  deliveryTime: "24 hrs",
+  popular: true,
+  variants: [
+    { type: "Basic Clean", price: 299, savings: "Save ₹100", popular: true },
+    { type: "Deep Clean", price: 349, savings: "Stain removal" },
+    { type: "Premium Restore", price: 399, savings: "Like new finish" }
+  ],
+  fabricCare: "Hand clean & air dry",
+  subscription: { available: false, discount: null, savings: null },
+  badges: ["Footwear care"]
+},
+{
+  id: 13,
+  name: "Carpet Deep Cleaning",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 499,
+  originalPrice: 649,
+  rating: 4.8,
+  reviews: 89,
+  image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop",
+  description: "Heavy carpet shampoo wash",
+  tagline: "Dust mite & odor removal",
+  deliveryTime: "72 hrs",
+  popular: false,
+  variants: [
+    { type: "Shampoo Wash", price: 499, savings: "Save ₹150", popular: true },
+    { type: "Steam Clean", price: 549, savings: "Sanitized clean" },
+    { type: "Premium Protect", price: 649, savings: "Stain guard" }
+  ],
+  fabricCare: "Vacuum & steam treatment",
+  subscription: { available: true, discount: "10% off", savings: "Annual plan" },
+  badges: ["Home hygiene"]
+},
+{
+  id: 14,
+  name: "Men's T-Shirt Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 79,
+  originalPrice: 99,
+  rating: 4.4,
+  reviews: 54,
+  image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+  description: "Daily wear t-shirt wash",
+  tagline: "Color safe & soft finish",
+  deliveryTime: "12 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 79 },
+    { type: "Steam Iron", price: 59 },
+    { type: "Express", price: 99 }
+  ],
+  fabricCare: "Cold wash & tumble dry",
+  badges: ["Daily wear"]
+},
+{
+  id: 15,
+  name: "Men's Trouser Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 109,
+  originalPrice: 149,
+  rating: 4.5,
+  reviews: 73,
+  image: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400",
+  description: "Formal trouser cleaning",
+  tagline: "Crease retention finish",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 109 },
+    { type: "Dry Clean", price: 159 },
+    { type: "Express", price: 139 }
+  ],
+  fabricCare: "Warm wash & press",
+  badges: ["Office wear"]
+},
+{
+  id: 16,
+  name: "Women's Kurti Care",
+  category: "women",
+  serviceFor: "Women",
+  price: 119,
+  originalPrice: 159,
+  rating: 4.6,
+  reviews: 88,
+  image: "https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=400",
+  description: "Ethnic kurti wash",
+  tagline: "Color & embroidery safe",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 119 },
+    { type: "Dry Clean", price: 169 },
+    { type: "Express", price: 149 }
+  ],
+  fabricCare: "Gentle wash",
+  badges: ["Ethnic wear"]
+},
+{
+  id: 17,
+  name: "Women's Leggings Care",
+  category: "women",
+  serviceFor: "Women",
+  price: 69,
+  originalPrice: 99,
+  rating: 4.3,
+  reviews: 41,
+  image: "https://images.unsplash.com/photo-1544441893-675973e31985?w=400",
+  description: "Stretch fabric wash",
+  tagline: "Elastic safe wash",
+  deliveryTime: "12 hrs",
+  variants: [
+    { type: "Wash", price: 69 },
+    { type: "Steam Iron", price: 49 },
+    { type: "Express", price: 89 }
+  ],
+  fabricCare: "Cold wash",
+  badges: ["Daily wear"]
+},
+{
+  id: 18,
+  name: "Winter Jacket Care",
+  category: "winter",
+  serviceFor: "Unisex",
+  price: 299,
+  originalPrice: 399,
+  rating: 4.7,
+  reviews: 66,
+  image: "https://i.pinimg.com/1200x/6a/e8/94/6ae8941abacbaaef2245db9d42610119.jpg",
+  description: "Puffer & heavy jacket clean",
+  tagline: "Loft restore treatment",
+  deliveryTime: "48 hrs",
+  variants: [
+    { type: "Dry Clean", price: 299 },
+    { type: "Premium Clean", price: 349 },
+    { type: "Express", price: 399 }
+  ],
+  fabricCare: "Low heat dry",
+  badges: ["Winter wear"]
+},
+{
+  id: 19,
+  name: "Wool Shawl Care",
+  category: "winter",
+  serviceFor: "Women",
+  price: 179,
+  originalPrice: 249,
+  rating: 4.6,
+  reviews: 38,
+  image: "https://i.pinimg.com/1200x/6c/53/e3/6c53e30118e59cba088297d34bb001ca.jpg",
+  description: "Soft wool shawl wash",
+  tagline: "Anti-shrink treatment",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Hand Wash", price: 179 },
+    { type: "Dry Clean", price: 229 },
+    { type: "Express", price: 259 }
+  ],
+  fabricCare: "Hand wash",
+  badges: ["Winter wear"]
+},
+{
+  id: 20,
+  name: "Bedsheet Care",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 199,
+  originalPrice: 249,
+  rating: 4.5,
+  reviews: 92,
+  image: "https://i.pinimg.com/1200x/2d/68/a2/2d68a23110880c57ba4ded983ad8a95d.jpg",
+  description: "Large bedsheet wash",
+  tagline: "Hygienic & fresh",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Machine Wash", price: 199 },
+    { type: "Hot Wash", price: 229 },
+    { type: "Premium Soft", price: 249 }
+  ],
+  fabricCare: "Warm wash",
+  badges: ["Home care"]
+},
+{
+  id: 21,
+  name: "Pillow Cover Care",
+  category: "home",
+  serviceFor: "Unisex",
+  price: 59,
+  originalPrice: 79,
+  rating: 4.4,
+  reviews: 33,
+  image: "https://i.pinimg.com/1200x/b3/5e/60/b35e6061bbba6e95a8cbee5d90204a94.jpg",
+  description: "Soft pillow cover wash",
+  tagline: "Skin-safe clean",
+  deliveryTime: "12 hrs",
+  variants: [
+    { type: "Wash", price: 59 },
+    { type: "Hot Wash", price: 69 },
+    { type: "Express", price: 79 }
+  ],
+  fabricCare: "Gentle wash",
+  badges: ["Home care"]
+},
+{
+  id: 22,
+  name: "Leather Shoe Care",
+  category: "footwear",
+  serviceFor: "Unisex",
+  price: 349,
+  originalPrice: 449,
+  rating: 4.8,
+  reviews: 58,
+  image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400",
+  description: "Leather shoe polish & clean",
+  tagline: "Shine & protection",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Clean & Polish", price: 349 },
+    { type: "Deep Restore", price: 399 },
+    { type: "Premium Care", price: 449 }
+  ],
+  fabricCare: "Leather safe",
+  badges: ["Footwear"]
+},
+{
+  id: 23,
+  name: "Sports Shoe Wash",
+  category: "footwear",
+  serviceFor: "Unisex",
+  price: 279,
+  originalPrice: 349,
+  rating: 4.6,
+  reviews: 71,
+  image: "https://i.pinimg.com/736x/12/ba/8c/12ba8c4fcbab1399b4f1292547b3af94.jpg",
+  description: "Running shoe cleaning",
+  tagline: "Odor & stain removal",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Basic Clean", price: 279 },
+    { type: "Deep Clean", price: 319 },
+    { type: "Premium", price: 349 }
+  ],
+  fabricCare: "Air dry",
+  badges: ["Footwear"]
+},
+ // ✅ MEN PRODUCTS FULL (fixed)
+{
+  id: 101,
+  name: "Men's T-Shirt Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 79,
+  originalPrice: 99,
+  rating: 4.6,
+  reviews: 54,
+  image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&auto=format&fit=crop",
+  description: "Daily wear t-shirt wash",
+  tagline: "Color safe & soft finish",
+  deliveryTime: "12 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 79 },
+    { type: "Steam Iron", price: 59 },
+    { type: "Express", price: 99 }
+  ],
+  fabricCare: "Cold wash & tumble dry",
+  badges: ["Daily wear"]
+},
+
+{
+  id: 102,
+  name: "Men's Casual Shirt Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 99,
+  originalPrice: 129,
+  rating: 4.7,
+  reviews: 73,
+  image: "https://images.unsplash.com/photo-1603252109303-2751441dd157?w=400&auto=format&fit=crop",
+  description: "Premium shirt wash",
+  tagline: "Crisp collar finish",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 99 },
+    { type: "Dry Clean", price: 149 },
+    { type: "Express", price: 129 }
+  ],
+  fabricCare: "Warm wash & press",
+  badges: ["Casual wear"]
+},
+
+{
+  id: 103,
+  name: "Men's Jeans Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 119,
+  originalPrice: 159,
+  rating: 4.8,
+  reviews: 88,
+  image: "https://i.pinimg.com/736x/e3/35/4f/e3354fef360ef4f3fc8ef2164fb22550.jpg",
+  description: "Denim deep wash",
+  tagline: "Color retention & softness",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Denim Wash", price: 119 },
+    { type: "Dry Clean", price: 179 },
+    { type: "Express", price: 149 }
+  ],
+  fabricCare: "Cold denim wash",
+  badges: ["Denim care"]
+},
+
+{
+  id: 104,
+  name: "Men's Formal Shirt Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 109,
+  originalPrice: 149,
+  rating: 4.7,
+  reviews: 66,
+  image: "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=400&auto=format&fit=crop",
+  description: "Office shirt cleaning",
+  tagline: "Sharp crease finish",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 109 },
+    { type: "Dry Clean", price: 159 },
+    { type: "Express", price: 139 }
+  ],
+  fabricCare: "Warm wash & press",
+  badges: ["Office wear"]
+},
+
+{
+  id: 105,
+  name: "Men's Blazer Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 249,
+  originalPrice: 299,
+  rating: 4.9,
+  reviews: 112,
+  image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop",
+  description: "Premium blazer dry clean",
+  tagline: "Shape & structure restore",
+  deliveryTime: "48 hrs",
+  variants: [
+    { type: "Dry Clean", price: 249 },
+    { type: "Steam Finish", price: 279 },
+    { type: "Express", price: 299 }
+  ],
+  fabricCare: "Dry clean only",
+  badges: ["Formal wear"]
+},
+
+{
+  id: 106,
+  name: "Men's Jacket Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 299,
+  originalPrice: 349,
+  rating: 4.7,
+  reviews: 92,
+  image: "https://i.pinimg.com/1200x/c6/cf/34/c6cf34c78646e8a4b1ace756c087e65b.jpg",
+  description: "Winter jacket cleaning",
+  tagline: "Loft restore treatment",
+  deliveryTime: "48 hrs",
+  variants: [
+    { type: "Dry Clean", price: 299 },
+    { type: "Premium Clean", price: 329 },
+    { type: "Express", price: 349 }
+  ],
+  fabricCare: "Low heat dry",
+  badges: ["Winter wear"]
+},
+
+{
+  id: 107,
+  name: "Men's Kurta Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 129,
+  originalPrice: 179,
+  rating: 4.8,
+  reviews: 74,
+  image: "https://i.pinimg.com/1200x/b7/48/8d/b7488d08014566435cdad0584fb78f93.jpg",
+  description: "Ethnic kurta wash",
+  tagline: "Embroidery safe clean",
+  deliveryTime: "24 hrs",
+  variants: [
+    { type: "Wash & Iron", price: 129 },
+    { type: "Dry Clean", price: 179 },
+    { type: "Express", price: 159 }
+  ],
+  fabricCare: "Gentle wash",
+  badges: ["Ethnic wear"]
+},
+
+{
+  id: 108,
+  name: "Men's Sherwani Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 349,
+  originalPrice: 449,
+  rating: 4.9,
+  reviews: 52,
+  image: "https://i.pinimg.com/1200x/60/66/49/6066499a6c78481e03486e94ed5276e7.jpg",
+  description: "Wedding sherwani cleaning",
+  tagline: "Luxury fabric care",
+  deliveryTime: "72 hrs",
+  variants: [
+    { type: "Premium Dry Clean", price: 349 },
+    { type: "Hand Finish", price: 399 },
+    { type: "Express", price: 449 }
+  ],
+  fabricCare: "Professional clean",
+  badges: ["Wedding wear"]
+},
+
+{
+  id: 109,
+  name: "Men's Blanket Care",
+  category: "men",
+  serviceFor: "Men",
+  price: 249,
+  originalPrice: 299,
+  rating: 4.7,
+  reviews: 63,
+  image: "https://i.pinimg.com/736x/59/48/40/5948401ec0ea978140e1a96b0cbfd0f8.jpg",
+  description: "Heavy blanket wash",
+  tagline: "Softness restore",
+  deliveryTime: "48 hrs",
+  variants: [
+    { type: "Machine Wash", price: 249 },
+    { type: "Hot Wash", price: 279 },
+    { type: "Premium Soft", price: 299 }
+  ],
+  fabricCare: "Warm wash",
+  badges: ["Home care"]
+}
+];
+  export default products;
