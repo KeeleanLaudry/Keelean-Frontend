@@ -11,6 +11,7 @@ import Booking from "./Pages/Booking";
 import Contact from "./Pages/Contact";
 import Vendors from "./Vendor/vendor";
 import VendorDetails from "./Vendor/VendorDetails";
+import Checkout from "./Pages/Checkout";
 // import Login from "./Login/Login";
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
 {/* <Route path="/Login" element={<Login/>} /> */}
   <Route path="/vendor" element={<Vendors />} />
 <Route path="/vendor/:vendorId" element={<VendorDetails />} />
+    <Route path="/checkout" element={<Checkout />} />
+
 </Routes>
 
       <Footer/>

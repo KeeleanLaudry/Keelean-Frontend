@@ -116,43 +116,44 @@ const HomePage = () => {
       price: "$9.99/pair",
       rating: 4.6,
       vendorId: 6
-    }
+    },
+    {
+  icon: Package,
+  title: "Blanket Cleaning",
+  description: "Deep cleaning service for blankets, quilts, and comforters with hygienic drying",
+  features: ["Heavy Wash", "Anti-Bacterial", "Soft Finish", "Odor Removal"],
+  image: "https://images.unsplash.com/photo-1600369672770-985fd30004eb?auto=format&fit=crop&w=800&q=80",
+  color: "from-gray-700 to-gray-600",
+  badge: "Seasonal",
+  price: "$14.99/item",
+  rating: 4.7,
+  vendorId: 7
+},
+{
+  icon: Home,
+  title: "Curtain Cleaning",
+  description: "Gentle fabric-safe curtain cleaning with steam finish and wrinkle-free hanging",
+  features: ["Fabric Care", "Steam Finish", "Dust Removal", "Fresh Fragrance"],
+  image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=80",
+  color: "from-gray-600 to-gray-500",
+  badge: "Home Care",
+  price: "$8.99/panel",
+  rating: 4.6,
+  vendorId: 8
+}
   ];
 
   // Testimonials data
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Regular Customer",
-      comment: "Best laundry service in town! My clothes always come back perfectly clean and folded.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108777-467efb70423f?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-    },
-    {
-      name: "Michael Chen",
-      role: "Business Owner",
-      comment: "Their dry cleaning service is exceptional. They handle my suits with great care.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-    },
-    {
-      name: "Emily Davis",
-      role: "Working Professional",
-      comment: "The express service is a lifesaver! Fast, reliable, and great quality every time.",
-      rating: 5,
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+ 
+
+ const handleBookNow = (service) => {
+  navigate("/vendor", {
+    state: {
+      vendorId: service.vendorId,
+      title: service.title
     }
-  ];
-
-  const handleBookNow = (service) => {
-    navigate('/vendor', { 
-      state: { 
-        service: service,
-        from: 'homepage'
-      } 
-    });
-  };
-
+  });
+};
   // Handle view all services
   const handleViewAllServices = () => {
     navigate('/vendor', { 
@@ -184,7 +185,7 @@ const HomePage = () => {
             <div className="inline-flex items-center justify-center space-x-2 bg-gray-100 px-4 py-2 rounded-full mb-4">
               <span className="text-sm font-semibold text-gray-700 tracking-wider">OUR SERVICES</span>
             </div>
-            <h2 className="text-2xl md:text-5xl font-bold mb-6 text-gray-900">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-gray-900">
               Professional Laundry Services
             
             </h2>
@@ -193,70 +194,77 @@ const HomePage = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all border border-gray-100"
-              >
-                <div className="relative h-56 overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-40 z-10`} />
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    onError={handleImageError}
-                    loading="lazy"
-                  />
-                  <span className="absolute top-4 right-4 z-20 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700 shadow-lg">
-                    {service.badge}
-                  </span>
-                  
-                  <div className="absolute bottom-4 right-4 z-20 flex items-center space-x-1 px-2 py-1 bg-black/30 backdrop-blur-sm rounded-full">
-                    <Star className="w-3 h-3 fill-gray-300 text-gray-300" />
-                    <span className="text-xs text-white">{service.rating}</span>
-                  </div>
-                </div>
+ <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+  {services.map((service, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.06 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -6 }}
+      className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-lg transition-all"
+    >
+      {/* IMAGE */}
+      <div className="relative h-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-700/40 to-gray-500/30 z-10" />
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          onError={handleImageError}
+          loading="lazy"
+        />
 
-                <div className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className={`p-3 bg-gradient-to-r ${service.color} rounded-xl text-white shadow-lg`}>
-                      <service.icon className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">{service.title}</h3>
-                  </div>
+        {/* BADGE */}
+        <span className="absolute top-2 right-2 z-20 px-2 py-0.5 bg-white/90 rounded-full text-[10px] font-medium text-gray-700 shadow-sm">
+          {service.badge}
+        </span>
 
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                    {service.description}
-                  </p>
+        {/* RATING */}
+        <div className="absolute bottom-2 right-2 z-20 flex items-center gap-1 px-1.5 py-0.5 bg-black/40 rounded-full">
+          <Star className="w-3 h-3 text-gray-300 fill-gray-300" />
+          <span className="text-[10px] text-white">{service.rating}</span>
+        </div>
+      </div>
 
-                  <div className="grid grid-cols-2 gap-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-1 text-xs">
-                        <CheckCircle2 className="w-3 h-3 text-gray-500" />
-                        <span className="text-gray-600">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Book Now Button with navigation */}
-                  <motion.button
-                    whileHover={{ x: 5 }}
-                    onClick={() => handleBookNow(service)}
-                    className="flex items-center space-x-2 text-gray-700 font-medium text-sm group cursor-pointer"
-                  >
-                    <span>Book Now</span>
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
+      {/* BODY */}
+      <div className="p-3">
+        <div className="flex items-center gap-2 mb-1">
+          <div className="p-2 rounded-lg bg-gray-800 text-white">
+            <service.icon className="w-4 h-4" />
           </div>
+          <h3 className="text-sm font-semibold text-gray-900 leading-tight">
+            {service.title}
+          </h3>
+        </div>
+
+        <p className="text-gray-600 text-[11px] leading-snug mb-2 line-clamp-2">
+          {service.description}
+        </p>
+
+        {/* FEATURES */}
+        <div className="grid grid-cols-2 gap-x-2 gap-y-1 mb-3">
+          {service.features.slice(0, 4).map((feature, idx) => (
+            <div key={idx} className="flex items-center gap-1 text-[10px] text-gray-600">
+              <CheckCircle2 className="w-3 h-3 text-gray-400" />
+              <span>{feature}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <button
+          onClick={() => handleBookNow(service)}
+          className="flex items-center gap-1 text-gray-700 text-xs font-medium hover:text-gray-900 transition"
+        >
+          Book Now
+          <ChevronRight className="w-3 h-3" />
+        </button>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

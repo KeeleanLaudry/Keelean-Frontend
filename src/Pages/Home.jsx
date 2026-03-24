@@ -1,33 +1,58 @@
 import React from "react";
 import HeroBanner from "../Home/HeroBanner";
 import Services from "../Home/Services";
-import HowItWorks from "../Home/About Us";
-import FAQSection from "../Home/FAQSection";
-import Footer from "../Home/Footer";
 import Testimonial from "../Home/Testimonial";
-import MensCategorySection from "../Home/MensCategory";
 import products from "../Data/Product";
-import PopularServicesSection from "../Home/PopularServices"; 
-import WomensCategory from "../Home/WomensCategory";
-import HomeCategory from "../Home/HomCategory";
-import Footwear from "../Home/FootwareCategory"
+import CategorySection from "../Home/CategorySection";
+
+import { Home as HomeIcon, Shirt, Scissors, Footprints } from "lucide-react";
+
 const Home = () => {
+
+  const onAddToCart = (product) => {
+    console.log("Add to cart:", product);
+  };
+
   return (
     <>
       <HeroBanner />
       <Services />
-      {/* <HowItWorks /> */}
-  <MensCategorySection products={products} />
-      <WomensCategory products={products}/>
-<HomeCategory products={products}/>
-<Footwear products={products}/>
-      {/* <CleanlinessSection/>
-      <FAQSection /> */}
-      <Testimonial/>
-      
+
+      <CategorySection
+        title="Home Collection"
+        icon={HomeIcon}
+        products={products}
+        filterFn={(p) => p.category === "home"}
+        onAddToCart={onAddToCart}
+      />
+
+      <CategorySection
+        title="Men's Collection"
+        icon={Shirt}
+        products={products}
+        filterFn={(p) => p.category === "men"}
+        onAddToCart={onAddToCart}
+      />
+
+      <CategorySection
+        title="Women's Collection"
+        icon={Scissors}
+        products={products}
+        filterFn={(p) => p.serviceFor?.toLowerCase() === "women"}
+        onAddToCart={onAddToCart}
+      />
+
+      <CategorySection
+        title="Footwear Collection"
+        icon={Footprints}
+        products={products}
+        filterFn={(p) => p.category === "footwear"}
+        onAddToCart={onAddToCart}
+      />
+
+      <Testimonial />
     </>
   );
 };
 
 export default Home;
-

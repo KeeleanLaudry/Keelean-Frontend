@@ -128,20 +128,7 @@ const decreaseQty = (productId) => {
     return { ...prev, [key]: newQty };
   });
 };
-  // const filteredProducts = products.filter(product => {
-  //   const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //                        product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //                        product.tagline.toLowerCase().includes(searchTerm.toLowerCase());
-    
-  //   let matchesCategory = true;
-  //   if (selectedCategory !== 'all') {
-  //     if (selectedCategory === 'men') matchesCategory = product.serviceFor === 'Men';
-  //     else if (selectedCategory === 'women') matchesCategory = product.serviceFor === 'Women';
-  //     else if (selectedCategory === 'unisex') matchesCategory = product.serviceFor === 'Unisex';
-  //   }
-    
-  //   return matchesSearch && matchesCategory;
-  // });
+  
 const getVariantQty = (productId) => {
   const variant = selectedVariant[productId];
   if (!variant) return 0;
