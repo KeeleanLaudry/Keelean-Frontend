@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { 
   Sparkles, 
   Shield, 
@@ -42,7 +43,7 @@ const HomePage = () => {
   const { scrollYProgress } = useScroll();
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.1]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.6]);
-
+const location = useLocation();
   // Services data with gray theme
   const services = [
     {
@@ -156,7 +157,7 @@ const HomePage = () => {
 };
   // Handle view all services
   const handleViewAllServices = () => {
-    navigate('/vendor', { 
+    navigate('/services', { 
       state: { 
         viewAll: true,
         from: 'homepage'
@@ -266,23 +267,25 @@ const HomePage = () => {
   ))}
 </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleViewAllServices}
-              className="px-8 py-4 bg-gray-800 text-white rounded-full font-semibold inline-flex items-center space-x-2 shadow-xl hover:bg-gray-700 transition-colors cursor-pointer"
-            >
-              <span>VIEW ALL SERVICES</span>
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
-          </motion.div>
+         {location.pathname !== "/services" && (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.6 }}
+    viewport={{ once: true }}
+    className="text-center mt-12"
+  >
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={handleViewAllServices}
+      className="px-8 py-4 bg-gray-800 text-white rounded-full font-semibold inline-flex items-center space-x-2 shadow-xl hover:bg-gray-700 transition-colors cursor-pointer"
+    >
+      <span>VIEW ALL SERVICES</span>
+      <ArrowRight className="w-4 h-4" />
+    </motion.button>
+  </motion.div>
+)}
         </div>
       </section>
     </div>

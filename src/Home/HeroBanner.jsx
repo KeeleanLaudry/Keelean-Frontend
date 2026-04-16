@@ -12,28 +12,28 @@ const HeroBanner = () => {
       id: 1,
       name: "Premium Detergent",
       description: "Eco-friendly formula",
-      image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/b3/16/23/b3162364b1943326e747b4713d3021cb.jpg",
       color: "from-gray-800 to-gray-600"
     },
     {
       id: 2,
       name: "Fabric Softener",
       description: "Long-lasting freshness",
-      image: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/1200x/02/ef/02/02ef023fec9baaae8bcf3da244e49d54.jpg",
       color: "from-gray-700 to-gray-500"
     },
     {
       id: 3,
       name: "Stain Remover",
       description: "Tough on stains, gentle on fabric",
-      image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/1200x/6b/83/3c/6b833cba743b0e57a48a37cf86c61d47.jpg",
       color: "from-gray-900 to-gray-700"
     },
     {
       id: 4,
       name: "Eco Wash",
       description: "100% biodegradable",
-      image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://i.pinimg.com/736x/63/cf/98/63cf98f44877186daf77f695805d74e3.jpg",
       color: "from-gray-600 to-gray-400"
     }
   ];

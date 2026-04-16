@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import { 
   MapPin, 
   ChevronDown, 
@@ -22,7 +22,7 @@ const Navbar = () => {
   const [cartCount, setCartCount] = useState(3);
 const locationPath = useLocation();
 const isHomePage = locationPath.pathname === "/";
-
+const navigate = useNavigate();
   // Scroll effect
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +33,13 @@ const isHomePage = locationPath.pathname === "/";
   }, []);
 
   // Menu items
-  const menuItems = ["Home", "Services", "Pricing", "About", "Contact"];
+ const menuItems = [
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "Pricing", path: "/pricing" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" }
+];
 
   return (
     <motion.nav
@@ -76,18 +82,20 @@ const isHomePage = locationPath.pathname === "/";
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            {menuItems.map((item) => (
-              <motion.a
-                key={item}
-                href="#"
-                whileHover={{ y: -2 }}
-                className={`text-sm font-medium transition-colors ${
-                  (isScrolled || !isHomePage) ? 'text-gray-700 hover:text-gray-900' : 'text-white/90 hover:text-white'
-                }`}
-              >
-                {item}
-              </motion.a>
-            ))}
+           {menuItems.map((item) => (
+  <motion.button
+    key={item.name}
+    onClick={() => navigate(item.path)}
+    whileHover={{ y: -2 }}
+    className={`text-sm font-medium transition-colors ${
+      (isScrolled || !isHomePage)
+        ? 'text-gray-700 hover:text-gray-900'
+        : 'text-white/90 hover:text-white'
+    }`}
+  >
+    {item.name}
+  </motion.button>
+))}
           </div>
 
           {/* Right Icons */}
@@ -191,19 +199,19 @@ const isHomePage = locationPath.pathname === "/";
             </motion.button>
 
             {/* Login/Sign Up Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`hidden sm:flex items-center space-x-2 px-4 py-2 rounded-lg transition-all ${
-                (isScrolled || !isHomePage) 
-                  ? 'bg-gray-900 text-white hover:bg-gray-800' 
-                  : 'bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/30'
-              }`}
-            >
-              <User className="w-4 h-4" />
-              <span className="text-sm font-medium">Sign In</span>
-            </motion.button>
-
+           <motion.button
+  onClick={() => navigate("/login")}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className={`hidden sm:flex items-center space-x-2 px-4 py-2 rounded-lg transition-all ${
+    (isScrolled || !isHomePage) 
+      ? 'bg-gray-900 text-white hover:bg-gray-800' 
+      : 'bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border border-white/30'
+  }`}
+>
+  <User className="w-4 h-4" />
+  <span className="text-sm font-medium">Sign In</span>
+</motion.button>
             {/* Mobile Menu Button */}
             <motion.button
               whileTap={{ scale: 0.95 }}

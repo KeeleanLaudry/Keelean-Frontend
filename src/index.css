@@ -74,3 +74,9 @@ body {
   -ms-overflow-style: none;  /* IE/Edge */
   scrollbar-width: none;     /* Firefox */
 }
+.swiper-button-next {
+  display: none !important;
+}
+.slick-next {
+  display: none !important;
+}

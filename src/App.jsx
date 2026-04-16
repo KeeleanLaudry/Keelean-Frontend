@@ -4,7 +4,7 @@ import Home from "../src/Pages/Home";
 import "./index.css";
 import Pickup from "./Pages/PickUppage";
 import TrackOrder from "./Pages/TrackOrder";
-import Services from "./Pages/Services";
+import Services from "./Home/Services";
 import About from "./Pages/AboutUs"
 import Footer from "./Home/Footer";
 import Booking from "./Pages/Booking";
@@ -12,7 +12,8 @@ import Contact from "./Pages/Contact";
 import Vendors from "./Vendor/vendor";
 import VendorDetails from "./Vendor/VendorDetails";
 import Checkout from "./Pages/Checkout";
-// import Login from "./Login/Login";
+ import Login from "./Login/Login";
+ import ProfilePage from "./Login/profile";
 function App() {
   return (
     <BrowserRouter>
@@ -26,11 +27,11 @@ function App() {
   <Route path="/About" element={<About />} />
   <Route path="/Booking" element={<Booking />} />
   <Route path="/Contact" element={<Contact />} />
-{/* <Route path="/Login" element={<Login/>} /> */}
+ <Route path="/Login" element={<Login/>} />
   <Route path="/vendor" element={<Vendors />} />
 <Route path="/vendor/:vendorId" element={<VendorDetails />} />
     <Route path="/checkout" element={<Checkout />} />
-
+<Route path="/ProfilePage" element={<ProfilePage/>} />
 </Routes>
 
       <Footer/>
